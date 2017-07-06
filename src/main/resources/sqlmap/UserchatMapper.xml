@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.springmvc.dao.UserchatMapper" >
+  <resultMap id="BaseResultMap" type="com.springmvc.entity.Userchat" >
+    <id column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.springmvc.entity.UserchatWithBLOBs" extends="BaseResultMap" >
+    <result column="tome" property="tome" jdbcType="LONGVARCHAR" />
+    <result column="toyou" property="toyou" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    createtime, name
+  </sql>
+  <sql id="Blob_Column_List" >
+    tome, toyou
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.util.Date" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from userchat
+    where createtime = #{createtime,jdbcType=TIMESTAMP}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.util.Date" >
+    delete from userchat
+    where createtime = #{createtime,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" parameterType="com.springmvc.entity.UserchatWithBLOBs" >
+    insert into userchat (createtime, name, tome, 
+      toyou)
+    values (#{createtime,jdbcType=TIMESTAMP}, #{name,jdbcType=VARCHAR}, #{tome,jdbcType=LONGVARCHAR}, 
+      #{toyou,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.springmvc.entity.UserchatWithBLOBs" >
+    insert into userchat
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="tome != null" >
+        tome,
+      </if>
+      <if test="toyou != null" >
+        toyou,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="tome != null" >
+        #{tome,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="toyou != null" >
+        #{toyou,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.springmvc.entity.UserchatWithBLOBs" >
+    update userchat
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="tome != null" >
+        tome = #{tome,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="toyou != null" >
+        toyou = #{toyou,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where createtime = #{createtime,jdbcType=TIMESTAMP}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.springmvc.entity.UserchatWithBLOBs" >
+    update userchat
+    set name = #{name,jdbcType=VARCHAR},
+      tome = #{tome,jdbcType=LONGVARCHAR},
+      toyou = #{toyou,jdbcType=LONGVARCHAR}
+    where createtime = #{createtime,jdbcType=TIMESTAMP}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.springmvc.entity.Userchat" >
+    update userchat
+    set name = #{name,jdbcType=VARCHAR}
+    where createtime = #{createtime,jdbcType=TIMESTAMP}
+  </update>
+</mapper>

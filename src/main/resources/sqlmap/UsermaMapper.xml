@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.springmvc.dao.UsermaMapper" >
+  <resultMap id="BaseResultMap" type="com.springmvc.entity.Userma" >
+    <id column="name" property="name" jdbcType="VARCHAR" />
+    <result column="yama" property="yama" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    name, yama
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from userma
+    where name = #{name,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from userma
+    where name = #{name,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.springmvc.entity.Userma" >
+    insert into userma (name, yama)
+    values (#{name,jdbcType=VARCHAR}, #{yama,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.springmvc.entity.Userma" >
+    insert into userma
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="yama != null" >
+        yama,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="yama != null" >
+        #{yama,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.springmvc.entity.Userma" >
+    update userma
+    <set >
+      <if test="yama != null" >
+        yama = #{yama,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where name = #{name,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.springmvc.entity.Userma" >
+    update userma
+    set yama = #{yama,jdbcType=VARCHAR}
+    where name = #{name,jdbcType=VARCHAR}
+  </update>
+</mapper>
