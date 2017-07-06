@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="mingmingge:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="mingmingge.war">
+      <element id="artifact" artifact-name="mingmingge:war exploded" />
+    </root>
+  </artifact>
+</component>
