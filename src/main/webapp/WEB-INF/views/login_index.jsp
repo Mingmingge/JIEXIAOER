@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>借小二</title>
     <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles/bootstrap.min.css">
-    <link rel="stylesheet" href="css/index.css">
-    <script src="styles/jquery-3.2.1.min.js"></script>
-    <script src="styles/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="/styles/jquery-3.2.1.min.js"></script>
+    <script src="/styles/bootstrap.min.js"></script>
 </head>
 <body style="width: 100%; margin-top: 10px;">
 <div>

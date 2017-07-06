@@ -114,4 +114,32 @@
       createtime = #{createtime,jdbcType=TIMESTAMP}
     where name = #{name,jdbcType=VARCHAR}
   </update>
+<select id="selectSelective" resultMap="BaseResultMap" parameterType="com.springmvc.entity.User">
+  SELECT
+  <include refid="Base_Column_List" />
+  from user
+  <where>
+    <if test="name!=null">
+      name= #{name,jdbcType=VARCHAR}
+    </if>
+    <if test="pwd!=null">
+      AND pwd= #{pwd,jdbcType=VARCHAR}
+    </if>
+    <if test="email!=null">
+    AND email= #{email,jdbcType=VARCHAR}
+  </if>
+    <if test="sex!=null">
+      AND sex= #{sex,jdbcType=INTEGER}
+    </if>
+    <if test="birthday!=null">
+      AND birthday= #{birthday,jdbcType=TIMESTAMP}
+    </if>
+    <if test="tel != null" >
+      AND tel = #{tel,jdbcType=VARCHAR}
+    </if>
+    <if test="createtime != null" >
+      AND createtime = #{createtime,jdbcType=TIMESTAMP}
+    </if>
+  </where>
+</select>
 </mapper>

@@ -5,19 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width:device-width initial-scale:1.0">
     <title>注册</title>
-    <link rel="stylesheet" type="text/css" href="regist.css"/>
-    <script type="text/javascript" src="styles/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/regist.css"/>
+    <script type="text/javascript" src="/styles/jquery-3.2.1.min.js"></script>
     <script type="text/javascript">
-       $(function () {
-           $("input[name='name']").blur(function () {
-               var str=$(this).val();
-               var len=str.length;
-               if(len==0){$("#tishi_name").html("请输入用户名！");}
-               if(len>15){$("#tishi_name").html("用户名在15位之内！");}
-               if(len<15&&len>0){$("#tishi_name").html("");}
-
-           })
-       })
         $(function () {
             $("input[name='pwd']").blur(function () {
                 var pwd=$(this).val();
@@ -34,18 +24,75 @@
                 if(!(q==pwd)){$("#tishi_que").html("两次密码不一致!");}
             })
         })
+        //邮箱验证
         $(function () {
             $("input[name='email']").blur(function () {
                 var email=$(this).val();
                 var a=email.indexOf("@");
                 var b=email.indexOf(".com");
                 if(a>0&&b>0){
-                    $("#tishi_you").html("");
-                    alert("以发送验证码到您邮箱，请注意查收!");
+                    $.ajax({
+                        url:"/regist/email",
+                        data:{
+                          email:$(this).val()
+                        },
+                        type:"POST",
+                        dataType:"json",
+                        success:function (data) {
+                            alert(data.result);
+                            $(this).html("");
+                        },
+                        error:function (er) {
+
+                        }
+                    })
                 }
                 else{
                     $("#tishi_you").html("邮箱格式不正确!");
                 }
+            })
+        })
+        //test for name
+        $(function () {
+            $("input[name='name']").blur(function () {
+                $.ajax({
+                    url:"/regist/name",
+                    data:{
+                        name:$(this).val()
+                    },
+                    type:"POST",
+                    dataType:"json",
+                    success:function (data) {
+                        $("#tishi_name").html(data.result);
+                        //alert(data.result);
+                    },
+                    error:function (er) {
+
+                    }
+                })
+
+            })
+        })
+        //邮箱验证码验证
+        $(function () {
+
+            $("input[name='yanzheng']").blur(function () {
+
+                $.ajax({
+                    url:"/regist/testma",
+                    data:{
+                        yanzheng:$(this).val()
+                    },
+                    type:"POST",
+                    dataType:"json",
+                    success:function (data) {
+                        $("#yan").html(data.result);
+                    },
+                    error:function (er) {
+
+                    }
+
+                })
             })
         })
     </script>
@@ -113,8 +160,39 @@
                 </td>
             </tr>
         </table>
-        <button class="but" type="submit" onclick="name()">注册</button>
+        <button class="but" type="submit">注册</button>
     </form>
 </div>
 </body>
+<script type="text/javascript">
+    $(function () {
+        $("#but").click(function () {
+            $.ajax({
+                url:"/regist/re",
+                data:{
+                    name:$("input[name='name']").val(),
+                    pwd:$("input[name='pwd']").val(),
+                    email:$("input[name='email']").val()
+
+                },
+                type:"POST",
+                dataType:"json",
+                success:function (data) {
+                    if(data.result=="注册成功"){
+
+                       alert(data.result);
+
+                       location.href="login.jsp";
+                    }
+                    else{
+                        alert(data.result);
+                    }
+                },
+                error:function (er) {
+
+                }
+            })
+        })
+    })
+</script>
 </html>
