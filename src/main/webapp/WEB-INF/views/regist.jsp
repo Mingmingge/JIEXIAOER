@@ -31,6 +31,7 @@
                 var a=email.indexOf("@");
                 var b=email.indexOf(".com");
                 if(a>0&&b>0){
+                    $("input[name='email']").html(" ");
                     $.ajax({
                         url:"/regist/email",
                         data:{
@@ -39,15 +40,16 @@
                         type:"POST",
                         dataType:"json",
                         success:function (data) {
+
                             alert(data.result);
-                            $(this).html("");
+
                         },
                         error:function (er) {
 
                         }
                     })
                 }
-                else{
+                if(!(a>0&&b>0)){
                     $("#tishi_you").html("邮箱格式不正确!");
                 }
             })
@@ -74,34 +76,13 @@
             })
         })
         //邮箱验证码验证
-        $(function () {
-
-            $("input[name='yanzheng']").blur(function () {
-
-                $.ajax({
-                    url:"/regist/testma",
-                    data:{
-                        yanzheng:$(this).val()
-                    },
-                    type:"POST",
-                    dataType:"json",
-                    success:function (data) {
-                        $("#yan").html(data.result);
-                    },
-                    error:function (er) {
-
-                    }
-
-                })
-            })
-        })
     </script>
 
 </head>
 <body>
 <div id="login">
     <h1>Sign&nbsp;Up</h1>
-    <form action="" method="post">
+    <form action="/regist/re" method="post">
         <table>
             <tr>
 
@@ -156,7 +137,7 @@
             </tr>
             <tr>
                 <td class="tishi">
-                 <p id="yan"></p>
+                 <p id="yan">${result}</p>
                 </td>
             </tr>
         </table>
@@ -164,35 +145,4 @@
     </form>
 </div>
 </body>
-<script type="text/javascript">
-    $(function () {
-        $("#but").click(function () {
-            $.ajax({
-                url:"/regist/re",
-                data:{
-                    name:$("input[name='name']").val(),
-                    pwd:$("input[name='pwd']").val(),
-                    email:$("input[name='email']").val()
-
-                },
-                type:"POST",
-                dataType:"json",
-                success:function (data) {
-                    if(data.result=="注册成功"){
-
-                       alert(data.result);
-
-                       location.href="login.jsp";
-                    }
-                    else{
-                        alert(data.result);
-                    }
-                },
-                error:function (er) {
-
-                }
-            })
-        })
-    })
-</script>
 </html>
