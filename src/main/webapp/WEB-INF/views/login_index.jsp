@@ -14,14 +14,15 @@
 <body style="width: 100%; margin-top: 10px;">
 <div>
     <nav class="navbar navbar-default" role="navigation" style="width: 100%;">
-        <a href="index.html">
+        <a href="/loginindex/signout">
             <button type="button" class="btn btn-default navbar-btn" style="float:left;margin-top:10px; margin-left: 10px;">
                 退出
             </button>
         </a>
+        <a href="/loginindex/wo">
         <button type="button" class="btn btn-default navbar-btn" style="float:left;margin-top:10px; margin-left: 10px;">
             &nbsp;我&nbsp;
-        </button>
+        </button></a>
         <div style="float: right; display: inline;">
             <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
@@ -60,7 +61,7 @@
 <div style="margin-left: 20%;width: 54%;height:1500px;background-color:rgba(188,155,86,0.37);padding-left: 9%;padding-top: 2%;">
     <div class="first_display" id="first_display_1">
         <div class="pic" id="pic_first_display_1">
-            <a href="index.html"><img src="images/zhanshi.jpg" style="width: 60%;height: 60%;"></a>
+            <a href="index.html"><img src="/images/zhanshi.jpg" style="width: 60%;height: 60%;"></a>
         </div>
         <div class="pic_intro" >
             对产品的介绍...
@@ -68,7 +69,7 @@
     </div>
     <div class="first_display" id="first_display_2">
         <div class="pic" id="pic_first_display_2">
-            <a href="index.html"><img src="images/zhanshi.jpg" style="width: 60%;height: 60%;"></a>
+            <a href="index.html"><img src="/images/zhanshi.jpg" style="width: 60%;height: 60%;"></a>
         </div>
         <div class="pic_intro" >
             对产品的介绍...
@@ -76,7 +77,7 @@
     </div>
     <div class="first_display" id="first_display_3">
         <div class="pic" id="pic_first_display_3">
-            <a href="index.html"><img src="images/zhanshi.jpg" style="width: 60%;height: 60%;"></a>
+            <a href="index.html"><img src="/images/zhanshi.jpg" style="width: 60%;height: 60%;"></a>
         </div>
         <div class="pic_intro" >
             对产品的介绍...
@@ -84,7 +85,7 @@
     </div>
     <div class="first_display" id="second_display_1">
         <div class="pic" id="pic_second_display_1">
-            <a href="index.html"><img src="images/zhanshi.jpg" style="width: 60%;height: 60%;"></a>
+            <a href="index.html"><img src="/images/zhanshi.jpg" style="width: 60%;height: 60%;"></a>
         </div>
         <div class="pic_intro" >
             对产品的介绍...
@@ -92,7 +93,7 @@
     </div>
     <div class="first_display" id="second_display_2">
         <div class="pic" id="pic_second_display_2">
-            <a href="index.html"><img src="images/zhanshi.jpg" style="width: 60%;height: 60%;"></a>
+            <a href="index.html"><img src="/images/zhanshi.jpg" style="width: 60%;height: 60%;"></a>
         </div>
         <div class="pic_intro" >
             对产品的介绍...
@@ -100,7 +101,7 @@
     </div>
     <div class="first_display" id="second_display_3">
         <div class="pic" id="pic_second_display_3">
-            <a href="index.html"><img src="images/zhanshi.jpg" style="width: 60%;height: 60%;"></a>
+            <a href="index.html"><img src="/images/zhanshi.jpg" style="width: 60%;height: 60%;"></a>
         </div>
         <div class="pic_intro" >
             对产品的介绍...
@@ -108,7 +109,7 @@
     </div>
     <div class="first_display" id="third_display_1">
         <div class="pic" id="pic_third_display_1">
-            <a href="index.html"><img src="images/zhanshi.jpg" style="width: 60%;height: 60%;"></a>
+            <a href="index.html"><img src="/images/zhanshi.jpg" style="width: 60%;height: 60%;"></a>
         </div>
         <div class="pic_intro" >
             对产品的介绍...
@@ -116,7 +117,7 @@
     </div>
     <div class="first_display" id="third_display_2">
         <div class="pic" id="pic_third_display_2">
-            <a href="index.html"><img src="images/zhanshi.jpg" style="width: 60%;height: 60%;"></a>
+            <a href="index.html"><img src="/images/zhanshi.jpg" style="width: 60%;height: 60%;"></a>
         </div>
         <div class="pic_intro" >
             对产品的介绍...
@@ -124,7 +125,7 @@
     </div>
     <div class="first_display" id="third_display_3">
         <div class="pic" id="pic_third_display_3">
-            <a href="index.html"><img src="images/zhanshi.jpg" style="width: 60%;height: 60%;"></a>
+            <a href="index.html"><img src="/images/zhanshi.jpg" style="width: 60%;height: 60%;"></a>
         </div>
         <div class="pic_intro" >
             对产品的介绍...
@@ -132,7 +133,7 @@
     </div>
     <div class="first_display" id="fourth_display_1">
         <div class="pic" id="pic_fourth_display_1">
-            <a href="index.html"><img src="images/zhanshi.jpg" style="width: 60%;height: 60%;"></a>
+            <a href="index.html"><img src="/images/zhanshi.jpg" style="width: 60%;height: 60%;"></a>
         </div>
         <div class="pic_intro" >
             对产品的介绍...
@@ -140,7 +141,7 @@
     </div>
     <div class="first_display" id="fourth_display_2">
         <div class="pic" id="pic_fourth_display_2">
-            <a href="index.html"><img src="images/zhanshi.jpg" style="width: 60%;height: 60%;"></a>
+            <a href="index.html"><img src="/images/zhanshi.jpg" style="width: 60%;height: 60%;"></a>
         </div>
         <div class="pic_intro" >
             对产品的介绍...
@@ -148,7 +149,7 @@
     </div>
     <div class="first_display" id="fourth_display_3">
         <div class="pic" id="pic_fourth_display_3">
-            <a href="index.html"><img src="images/zhanshi.jpg" style="width: 60%;height: 60%;"></a>
+            <a href="index.html"><img src="/images/zhanshi.jpg" style="width: 60%;height: 60%;"></a>
         </div>
         <div class="pic_intro" >
             对产品的介绍...
@@ -156,7 +157,7 @@
     </div>
     <div class="first_display" id="fifth_display_1">
         <div class="pic" id="pic_fifth_display_1">
-            <a href="index.html"><img src="images/zhanshi.jpg" style="width: 60%;height: 60%;"></a>
+            <a href="index.html"><img src="/images/zhanshi.jpg" style="width: 60%;height: 60%;"></a>
         </div>
         <div class="pic_intro" >
             对产品的介绍...
@@ -164,7 +165,7 @@
     </div>
     <div class="first_display" id="fifth_display_2">
         <div class="pic" id="pic_fifith_display_2">
-            <a href="index.html"><img src="images/zhanshi.jpg" style="width: 60%;height: 60%;"></a>
+            <a href="index.html"><img src="/images/zhanshi.jpg" style="width: 60%;height: 60%;"></a>
         </div>
         <div class="pic_intro" >
             对产品的介绍...
@@ -172,7 +173,7 @@
     </div>
     <div class="first_display" id="fifth_display_3">
         <div class="pic" id="pic_fifth_display_3">
-            <a href="index.html"><img src="images/zhanshi.jpg" style="width: 60%;height: 60%;"></a>
+            <a href="index.html"><img src="/images/zhanshi.jpg" style="width: 60%;height: 60%;"></a>
         </div>
         <div class="pic_intro" >
             对产品的介绍...

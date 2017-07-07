@@ -34,8 +34,8 @@ public class UserService {
 
     }
 
-    /*public ArrayList<User> selectSelective(User user){
+    public ArrayList<User> selectSelective(User user){
         return userMapper.selectSelective(user);
-    }*/
+    }
 
 }

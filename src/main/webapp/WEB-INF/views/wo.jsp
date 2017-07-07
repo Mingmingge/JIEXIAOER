@@ -5,21 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>我的主页</title>
-    <link rel="stylesheet" href="styles/bootstrap.min.css">
-    <link rel="stylesheet" href="css/wo.css">
-    <script src="styles/jquery-3.2.1.min.js"></script>
-    <script src="styles/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/wo.css">
+    <script src="/styles/jquery-3.2.1.min.js"></script>
+    <script src="/styles/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="con" id="con">
     <div class="left" id="left">
         <div class="le_co" id="name_pic">
             <div class="pic" id="pic">
-                <img src="images/touxiang.jpeg" class="img-circle" style="width: 100%;height: 100%">
+                <img src="/images/touxiang.jpeg" class="img-circle" style="width: 100%;height: 100%">
             </div>
             <div class="name" id="name">
 
- 👤 mingmingge          </div>
+ 👤&nbsp;&nbsp;&nbsp;&nbsp;${user.name}          </div>
         </div>
         <div class="le_co" id="to_you">
                 我的回复
@@ -27,7 +27,7 @@
         <div class="le_co" id="score">
             我的积分<br>
             <div style="padding-left: 55px;">
-            344
+           ${user.pwd}
             </div>
         </div>
         <div class="le_co" id="donwload">
@@ -44,12 +44,12 @@
     </div>
     <div class="le_co" id="right">
         <div class="chat" id="chat">
-
+            <p id="record">&nbsp;</p>
         </div>
         <div class="to_me" id="to_me">
             <form>
                 <input type="text" name="tome" id="tome" style="background-color:rgba(117, 69, 112, 0.32);width: 100%; height:80px;">
-                <button class="btn-default btn" value="留言" style="background-color: rgba(117, 69, 112, 0.32);width: 100%; margin-top: 40px;">
+                <button class="btn-default btn" value="留言" id="bu" style="background-color: rgba(117, 69, 112, 0.32);width: 100%; margin-top: 40px;">
                     留&nbsp;言
                 </button>
 
@@ -58,4 +58,24 @@
     </div>
 </div>
 </body>
+<script type="text/javascript">
+    $(function () {
+        $("#bu").click(function () {
+            $.ajax({
+                url:"/wo/sub",
+                data:{
+                    tome:$("#tome").val()
+                },
+                type:"POST",
+                dataType:"json",
+                success:function (data) {
+                    $("#record").append("<br>"+"<br>"+data.result);
+                },
+                error:function (er) {
+
+                }
+            })
+        })
+    })
+</script>
 </html>
