@@ -23,6 +23,7 @@ public class SendEmail{
      * 获取Session
      *
      * @return
+     *
      */
     public static Session getSession() {
         Properties props = new Properties();
