@@ -4,6 +4,7 @@ import com.springmvc.entity.User;
 import com.springmvc.entity.Userma;
 import com.springmvc.service.UserService;
 import com.springmvc.service.UsermaService;
+import com.springmvc.util.ProductRandom;
 import com.springmvc.util.SendEmail;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,6 @@ import java.util.Random;
 @Controller
 
 public class RegistController {
-
-    static String str="";
 
     static int n=0;
 
@@ -81,20 +80,23 @@ public class RegistController {
 
     @ResponseBody
 
-    public JSONObject sendForEmail(@RequestParam("email") String email){
+    public JSONObject sendForEmail(@RequestParam("email") String email) {
 
 
 
         JSONObject jsonObject=new JSONObject();
 
-        Random random=new Random();
+        ProductRandom productRandom = new ProductRandom();
 
-        for(int i=0;i<6;i++){
+       /* Random random=new Random();
+
+        for(int i=0;i<6;i++) {
 
             int a=random.nextInt(10);
 
             str=str+(Integer.toString(a));
-        }
+        }*/
+        String str = productRandom.toRandom();
 
         SendEmail.send(email,"欢迎注册","您的邮箱验证码为："+str+",请尽快输入，30分钟内有效！");
 
@@ -134,7 +136,7 @@ public class RegistController {
     @RequestMapping(value = "/regist/re",method = RequestMethod.POST)
 
 
-    public String  toRegin(@RequestParam("name") String name, @RequestParam("pwd") String pwd, @RequestParam("email") String email,@RequestParam("yanzheng") String yanzheng,Model model){
+    public String  toRegin(@RequestParam("name") String name, @RequestParam("pwd") String pwd, @RequestParam("email") String email,@RequestParam("yanzheng") String yanzheng,Model model) {
 
         User user=new User();
 
