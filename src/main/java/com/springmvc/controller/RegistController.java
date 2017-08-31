@@ -36,26 +36,26 @@ public class RegistController {
 
     @ResponseBody
 
-    public JSONObject testForName(@RequestParam("name") String name){
+    public JSONObject testForName(@RequestParam("name") String name) {
 
-        JSONObject jsonObject=new JSONObject();
+        JSONObject jsonObject = new JSONObject();
 
-        User user=userService.selectByPrimaryKey(name);
+        User user = userService.selectByPrimaryKey(name);
 
-        int len= name.length();
+        int len = name.length();
 
-        if(len==0){
+        if (len == 0) {
 
             jsonObject.put("result","请输入用户名!");
 
         }
 
-        if(len>0&&len<15){
+        if (len>0&&len<15) {
 
             jsonObject.put("result","");
 
         }
-        if(user==null&&len>0&&len<15){
+        if (user == null && len > 0 && len < 15) {
 
             jsonObject.put("result","");
 
@@ -63,13 +63,13 @@ public class RegistController {
 
         }
 
-        if(user!=null){
+        if (user != null) {
 
             jsonObject.put("result","用户名已注册！");
 
         }
 
-        //jsonObject.put("result","aaaa");
+
 
         return jsonObject;
     }
@@ -88,14 +88,6 @@ public class RegistController {
 
         ProductRandom productRandom = new ProductRandom();
 
-       /* Random random=new Random();
-
-        for(int i=0;i<6;i++) {
-
-            int a=random.nextInt(10);
-
-            str=str+(Integer.toString(a));
-        }*/
         String str = productRandom.toRandom();
 
         SendEmail.send(email,"欢迎注册","您的邮箱验证码为："+str+",请尽快输入，30分钟内有效！");

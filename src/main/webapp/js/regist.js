@@ -1,3 +1,26 @@
+//TEST FOR NAME
+    $(function () {
+        $("input[name = 'name']").blur(function () {
+            $.ajax({
+                url:"/regist/name",
+                data:{
+                    name:$(this).val()
+                },
+                type:"POST",
+                dataType:"json",
+                success:function (data) {
+                    $("#tishi_name").html(data.result)
+                },
+                error:function (data) {
+                    $("#tishi_name").html(data.result)
+                }
+
+
+            })
+        })
+    })
+
+//TEST FOR PASSWORD
 
     $(function () {
         $("input[name='pwd']").blur(function () {
@@ -51,24 +74,3 @@
 
 
 
-    //test for name
-    $(function () {
-        $("input[name='name']").blur(function () {
-            $.ajax({
-                url:"/regist/name",
-                data:{
-                    name:$(this).val()
-                },
-                type:"POST",
-                dataType:"json",
-                success:function (data) {
-                    $("#tishi_name").html(data.result);
-                    //alert(data.result);
-                },
-                error:function (er) {
-
-                }
-            })
-
-        })
-    })
