@@ -46,8 +46,7 @@ public class LoginController {
 
             return "login_index";
 
-        }
-        else{
+        } else{
 
             model.addAttribute("result", "<script type='text/javascript'>$(function(){alert('密码错误！');})");
 

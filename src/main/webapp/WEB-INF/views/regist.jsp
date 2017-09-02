@@ -67,7 +67,7 @@
             </tr>
             <tr>
                 <td class="tishi">
-                 <p id="yan">${result}</p>
+                 <p id="yan"></p>
                 </td>
             </tr>
         </table>
@@ -75,4 +75,17 @@
     </form>
 </div>
 </body>
+<script>
+    if ('${result}' != '') {
+        if ('${result}' == 1) {
+            alert('注册成功，将跳转到登录页面！');
+            location.href = '/index/login';
+        }
+        if ('${result}' == 0) {
+            alert('未知错误，注册失败！');
+        }
+
+    }
+
+</script>
 </html>
